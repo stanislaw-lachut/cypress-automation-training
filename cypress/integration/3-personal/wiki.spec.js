@@ -20,13 +20,13 @@ const testCases = [
 ]
 
 
-describe('Custom tests', () => {
+describe('Wiki tests', () => {
     beforeEach(() => {
         cy.visit('https://pl.wikipedia.org/');
         cy.get('#searchInput').clear();
     })
     testCases.forEach(test => {
-        it(`Should find ${test.query}`, () => {
+        it(`Should find ${test.text}`, () => {
             cy.get('#searchInput').type(`${test.text}{enter}`);
             // cy.get('.suggestions-result > span.highlight').should('contain.text', test.text).click();
             cy.get('#firstHeading').should('contain.text', test.text);
